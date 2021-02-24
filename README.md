@@ -6,6 +6,6 @@
 
 git clone git@github.com:LEUNGUU/dotfiles.git
 cd dotfiles
-bash setup.shell
+bash setup.sh
 
 ```
