@@ -1,0 +1,6 @@
+[user]
+	email = yuri.liang@ericsson.com
+  name = yuri.liang
+
+[core]
+  excludesfile = ~/.gitignore
