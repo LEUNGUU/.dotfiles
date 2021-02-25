@@ -208,17 +208,18 @@ set listchars=tab:\▏\ ,extends:⟫,precedes:⟪,nbsp:␣,trail:·
 
 " {{{ mappings
 
-let mapleader=";" 
-inoremap jj <Esc>
-inoremap kkk <Esc>
-inoremap hhh <Esc>
-inoremap llll <Esc>
+" comment all the mappings to train my muscle
+let mapleader=";"
+" inoremap jj <Esc>
+" inoremap kkk <Esc>
+" inoremap hhh <Esc>
+" inoremap llll <Esc>
 
 " use ctrl+h/j/k/l switch window
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+" noremap <C-h> <C-w>h
+" noremap <C-j> <C-w>j
+" noremap <C-k> <C-w>k
+" noremap <C-l> <C-w>l
 
 " double leader toggle visual
 nmap <leader><leader> V
