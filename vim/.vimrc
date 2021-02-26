@@ -16,36 +16,10 @@ syntax on
 
 " }}}
 
-" {{{ Plugin loading and settings
-let g:VimPack_Setup_Folders = ['after', 'autoload', 'backup', 'colors', 'doc', 'snippets', 'spell', 'swaps', 'syntax', 'tags', 'undo']
-let g:VimPack_Update_Frequency = 5
-let g:VimPack_Auto_Install = 1
-let g:VimPack_Auto_Update = 1
-
-call pack#load()
-
-PlugStart 'tpope/vim-commentary'
-PlugStart 'w0ng/vim-hybrid'
-PlugStart 'itchyny/vim-cursorword'
-PlugStart 'rhysd/accelerated-jk'
-PlugStart 'romainl/vim-cool'
-" }}}
-
-" {{{ all plugins settings
 " vim-hybrid
 set background=dark
 colorscheme hybrid
 " vim-hybrid
-
-" accelerated-jk
-nmap <silent>j <Plug>(accelerated_jk_gj)
-nmap <silent>k <Plug>(accelerated_jk_gk)
-" accelerated_jk
-
-" vim-cool
-let g:CoolTotalMatches = 1
-" vim-cool
-" }}}
 
 " {{{ conditional settings
 if &diff
@@ -58,23 +32,6 @@ if &diff
         autocmd VimEnter * ALEDisable
     augroup end
 endif
-
-if exists('+breakindent')
-    set breakindent
-endif
-" Centralize backups, swapfiles and undo history
-if exists("&backupdir")
-    set backupdir=~/.vim/backup//
-endif
-if exists("&directory")
-    set directory=~/.vim/swaps//
-endif
-if exists("&undodir")
-    set undolevels=5000
-    set undodir=~/.vim/undo//
-    set undofile
-endif
-" }}}
 
 " {{{ common settings
 set path+=** "find files
@@ -227,10 +184,6 @@ nmap <leader><leader> V
 " Toggle fold
 nnoremap <CR> za
 
-" The plugin rhysd/accelerated-jk moves through display-lines in normal mode,
-" these mappings will move through display-lines in visual mode too.
-vnoremap j gj
-vnoremap k gk
 
 " Start an external command with a single bang
 nnoremap ! :!
