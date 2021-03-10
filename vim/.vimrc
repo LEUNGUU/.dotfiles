@@ -17,6 +17,20 @@ syntax on
 
 " }}}
 
+" Plugin loading and settings
+let g:VimPack_Update_Frequency = 5
+let g:VimPack_Auto_Install = 1
+let g:VimPack_Auto_Update = 1
+
+call pack#load()
+
+PlugStart 'w0ng/vim-hybrid'
+PlugStart 'vim-airline/vim-airline'
+PlugStart 'vim-airline/vim-airline-themes'
+PlugStart 'itchyny/vim-cursorword'
+PlugStart 'tpope/vim-commentary'
+PlugStart 'romainl/vim-cool'
+
 set spelllang=en
 set spell
 
