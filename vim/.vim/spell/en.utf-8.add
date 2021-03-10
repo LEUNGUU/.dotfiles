@@ -75,3 +75,5 @@ backend
 mv
 mkdir
 cd
+json
+kubelet
