@@ -1,9 +1,9 @@
 " {{{ defaults
 scriptencoding utf-8
-if filereadable(expand('$VIMRUNTIME/defaults.vim'))
-    unlet! g:skip_defaults_vim
-    source $VIMRUNTIME/defaults.vim
-endif
+" if filereadable(expand('$VIMRUNTIME/defaults.vim'))
+    " unlet! g:skip_defaults_vim
+    " source $VIMRUNTIME/defaults.vim
+" endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
