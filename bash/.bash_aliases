@@ -14,7 +14,9 @@ alias sl='ls $__LS_OPTIONS'
 
 alias cd..='cd ..'
 alias ..='cd ..'
-alias ...='cd ../..'
+alias ....='cd ../..'
+alias ......='cd ../../../'
+alias ........='cd ../../../../'
 
 alias bc='bc -l'
 
@@ -22,7 +24,8 @@ alias bc='bc -l'
 alias mkdir='mkdir -p -v'
 alias mv='mv -iv'
 alias rm='rm -Iv --one-file-system --preserve-root'
-alias codespace='cd $HOME/codespace/'
+alias codespace='cd $HOME/codespace'
+
 
 # function checks if the application is installed
 function __add_command_replace_alias() {

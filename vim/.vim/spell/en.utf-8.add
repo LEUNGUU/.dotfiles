@@ -21,7 +21,6 @@ Facebook
 Gilson
 rebase
 i3
-cvc
 dns
 v1
 configMapGenerator
@@ -57,8 +56,6 @@ ProxyCommand
 azurerm
 kubernetes
 initContainer
-ericsson
-ngcvc
 artifactory
 args
 ConfigMap
@@ -77,3 +74,10 @@ mkdir
 cd
 json
 kubelet
+redis
+centos
+logstash
+filebeat
+prometheus
+ClusterIssuer
+grafana

@@ -272,3 +272,5 @@ export PATH="$HOME/.pyenv/bin:/usr/local/go/bin:$HOME/.local/node/bin:$PATH"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+shopt -s autocd
+source <(kubectl completion bash)
