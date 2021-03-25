@@ -4,3 +4,5 @@
 
 [core]
   excludesfile = ~/.gitignore
+[merge "master"]
+	driver = true

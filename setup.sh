@@ -20,13 +20,18 @@ function setup() {
 	    exit
 	  fi
     if [[ "${INSTALL_ONLY}" == "" ]]; then
-      folders=(bash vim tmux git)
+      folders=(bash vim tmux git nvim)
     else
       folders=${INSTALL_ONLY}
     fi
     for f in "${folders[@]}";
     do
+      if [[ "${f}" == "nvim" ]]; then
+        mkdir -p ~/.config/nvim
+        stow -v -R "$f" -t ~/.config/nvim/
+      else
       stow -v -R "$f" -t ~/
+      fi
     done
     echo "### Ending ###"
 }

@@ -82,3 +82,5 @@ prometheus
 ClusterIssuer
 grafana
 tmux
+fieldpath
+fieldref
