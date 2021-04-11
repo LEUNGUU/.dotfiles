@@ -1,22 +1,3 @@
-" {{{ defaults
-scriptencoding utf-8
-" if filereadable(expand('$VIMRUNTIME/defaults.vim'))
-"     unlet! g:skip_defaults_vim
-"     source $VIMRUNTIME/defaults.vim
-" endif
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
-" Enable file type detection and do language-dependent indenting.
-filetype plugin indent on
-
-" Switch syntax highlighting on
-syntax on
-
-
-" }}}
-
 " Plugin loading and settings
 
 call plug#begin(stdpath('config') . '/plugged')
@@ -27,99 +8,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/vim-cursorword'
 Plug 'tpope/vim-commentary'
 Plug 'romainl/vim-cool'
-Plug 'kizza/actionmenu.nvim'
 
 call plug#end()
 
 set spelllang=en
 set spell
-
-" actionmenu
-let g:loaded_actionmenu = 1
-" Default icon for the actionmenu (see nerdfonts.com)
-let g:actionmenu_icon = { 'character': 'ÔÉ´', 'foreground': 'yellow' }
-command! -nargs=0 ActionMenu call s:actionmenu()
-function! s:actionmenu()
-	let l:cword = expand('<cword>')
-	call actionmenu#open(s:build_menu(l:cword), function('s:apply_action'))
-endfunction
-
-function! s:apply_action(timer_id)
-	let [l:index, l:item] = g:actionmenu#selected
-	if ! empty(get(l:item, 'user_data'))
-		execute l:item['user_data']
-	endif
-endfunction
-
-function! s:build_menu(cword)
-	let l:items = []
-	let l:filetype = &filetype
-
-	if empty(a:cword)
-
-		" Blank operations
-		if l:filetype ==# 'go'
-			let l:items = extend(l:items, [
-				\ { 'word': 'If err', 'user_data': 'GoIfErr' },
-				\ { 'word': 'Vet', 'user_data': 'GoVet' },
-				\ { 'word': 'Run', 'user_data': 'GoRun' },
-				\ ])
-		endif
-
-		let l:items = extend(l:items, [
-			\ { 'word': 'Select all', 'user_data': 'normal! ggVG' },
-			\ { 'word': '-------' },
-			\ ])
-
-	else
-
-		" Filetype operations
-		if l:filetype ==# 'python'
-			let l:items = extend(l:items, [
-				\ { 'word': 'Definition', 'user_data': 'call jedi#goto()' },
-				\ { 'word': 'References…', 'user_data': 'call jedi#usages()' },
-				\ { 'word': '--------' },
-				\ ])
-		elseif l:filetype ==# 'go'
-			let l:items = extend(l:items, [
-				\ { 'word': 'Callees…', 'user_data': 'GoCallees' },
-				\ { 'word': 'Callers…', 'user_data': 'GoCallers' },
-				\ { 'word': 'Definition', 'user_data': 'GoDef' },
-				\ { 'word': 'Describe…', 'user_data': 'GoDescribe' },
-				\ { 'word': 'Implements…', 'user_data': 'GoImplements' },
-				\ { 'word': 'Info', 'user_data': 'GoInfo' },
-				\ { 'word': 'Referrers…', 'user_data': 'GoReferrers' },
-				\ { 'word': '--------' },
-				\ ])
-		elseif l:filetype ==# 'javascsript' || l:filetype ==# 'jsx'
-			let l:items = extend(l:items, [
-				\ { 'word': 'Definition', 'user_data': 'TernDefSplit' },
-				\ { 'word': 'References…', 'user_data': 'TernRefs' },
-				\ { 'word': '--------' },
-				\ ])
-		endif
-
-		" Word operations
-		let l:items = extend(l:items, [
-			\ { 'word': 'Find symbol…', 'user_data': 'DeniteCursorWord tag:include -no-start-filter' },
-			\ { 'word': 'Paste from…', 'user_data': 'Denite neoyank -default-action=replace -no-start-filter' },
-			\ { 'word': 'Grep…', 'user_data': 'DeniteCursorWord grep -no-start-filter' },
-			\ { 'word': '-------' },
-			\ ])
-	endif
-
-	" File operations
-	let l:items = extend(l:items, [
-		\ { 'word': 'Lint', 'user_data': 'Neomake' },
-		\ { 'word': 'Bookmark', 'user_data': 'BookmarkToggle' },
-		\ { 'word': 'Git diff', 'user_data': 'Gdiffsplit' },
-		\ { 'word': 'Unsaved diff', 'user_data': 'DiffOrig' },
-		\ { 'word': 'Open in browser', 'user_data': 'OpenSCM' },
-		\ ])
-
-	return l:items
-endfunction
-
 
 " vim-hybrid
 set background=dark
@@ -161,9 +54,9 @@ set modeline
 set report=0
 set lazyredraw " to avoid scrolling problems
 set nowrapscan
-set hls
+" set hls
 set mouse=nv
-set encoding=utf-8
+" set encoding=utf-8
 set novisualbell
 set noerrorbells
 set fileformats=unix,dos,mac
@@ -182,9 +75,6 @@ if $SUDO_USER !=# '' && $USER !=# $SUDO_USER
 	set nowritebackup
 	set noundofile
 endif
-
-" History saving
-set history=1000
 
 " clipboard
 if has('clipboard')
@@ -210,8 +100,6 @@ set expandtab       " Don't expand tabs to spaces.
 set tabstop=2       " The number of spaces a tab is
 set softtabstop=2   " While performing editing operations
 set shiftwidth=2    " Number of spaces to use in auto(indent)
-set smarttab        " Tab insert blanks according to 'shiftwidth'
-set autoindent      " Use same indenting on new lines
 set smartindent     " Smart autoindenting on new lines
 set shiftround      " Round indent to multiple of 'shiftwidth'
 
@@ -270,7 +158,7 @@ set showcmd             " Show command in status line
 set cmdheight=2         " Height of the command line
 set cmdwinheight=5      " Command-line lines
 set equalalways         " Resize windows on split or close
-set laststatus=2        " Always show a status line
+" set laststatus=2        " Always show a status line
 set colorcolumn=120      " Highlight the 80th character limit
 set display=lastline
 hi ExtraWhitespace cterm=underline
