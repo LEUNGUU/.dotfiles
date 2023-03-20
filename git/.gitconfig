@@ -1,8 +1,9 @@
 [user]
-	email = yuri.liang@ericsson.com
-  name = yuri.liang
-
+	name = leunguu
+	email = liangy3928@gmail.com
+	signingkey = FAA6047264DF85BC
 [core]
-  excludesfile = ~/.gitignore
-[merge "master"]
-	driver = true
+	editor = nvim
+[commit]
+	gpgsign = true
+
